@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddCourse from './AddCourse';
 import NavBar from '../components/NavigationBar/NavigationBar';
 
 class App extends React.Component {
