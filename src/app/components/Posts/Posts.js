@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import PostsList from './PostsList';
+import PostReducer from '../../reducers/postReducers';
+import { connect } from 'react-redux';
 
 const Posts = (props) => {
     return (
-        <h2>Posts Index page</h2>
+        <div>
+            <h2>Posts Index page</h2>
+            <PostsList {...props} />
+        </div>
     );
   };
 
-export default Posts;
+const mapStateToProps = (state, ownState) => {
+    return {
+        PostReducer: state.PostReducer,
+      };
+  };
+
+export default connect(mapStateToProps)(Posts);
