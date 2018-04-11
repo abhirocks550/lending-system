@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Pagination } from 'react-bootstrap';
+import './posts.css';
 
 const PostsList = (props) => {
     return (
@@ -8,8 +10,8 @@ const PostsList = (props) => {
                 {
                     props.PostReducer.data.map((post, index) => {
                         return (
-                            <div className="col-md-4" key={index}>
-                                <div className="panel panel-default">
+                            <div className="col-md-6 posts" key={index}>
+                                <div className="panel panel-primary">
                                     <div className="panel-heading">{post.title}</div>
                                     <div className="panel-body">
                                         <p>{post.body}</p>
@@ -17,11 +19,11 @@ const PostsList = (props) => {
                                 </div>
                             </div>
                         );
-                    })
+                      })
                 }
             </div>
         </div>
     );
-};
+  };
 
 export default PostsList;
