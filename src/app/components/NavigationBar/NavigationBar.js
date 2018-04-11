@@ -8,12 +8,14 @@ const NavBar = (props) => {
             <nav className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header" id="navBarHeading">
-                        <span>Course Tracker</span>
+                        <span>JSONPlaceholder App</span>
                     </div>
                     <ul className="nav navbar-nav">
-                        <li><Link to="/" activeClassName="active" >Add Course</Link></li>
+                        <li><Link to="/" activeClassName="active" >Get Posts</Link></li>
                         <li>
-                            <Link to="/existingCourse" activeClassName="active">Existing Courses</Link></li>
+                            <Link to="/comments" activeClassName="active">
+                            Get Comments</Link>
+                        </li>
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
                         <li><Link to="#"><span className="glyphicon glyphicon-log-in"></span> Logout</Link></li>
