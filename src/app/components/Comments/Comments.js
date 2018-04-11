@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as CommentsActions from '../../actions/commentsActions';
 import { connect } from 'react-redux';
+import CommentList from './CommentList';
 
 class Comments extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class Comments extends Component {
     return (
       <div>
         <h3>Comments</h3>
+        <CommentList {...this.props} />
       </div>
     );
   }
