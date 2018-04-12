@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './container/App';
 import Posts from './components/Posts/Posts';
 import Comments from './components/Comments/Comments';
+import AddPosts from './components/Posts/AddPosts';
 import * as PostActions from './actions/postActions';
 
 store.dispatch(PostActions.GetPosts());
@@ -15,6 +16,7 @@ render(
         <Router history={browserHistory}>
             <Route path="/" component={App} >
                 <IndexRoute component={Posts} />
+                <Route path="/posts" component={AddPosts} />                
                 <Route path="comments" component={Comments} />
             </Route>
         </Router>
