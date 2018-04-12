@@ -11,9 +11,9 @@ const CommentList = (props) => {
                         return (
                             <div className="col-md-6 posts" key={index}>
                                 <div className="panel panel-primary">
-                                    <div className="panel-heading">{post.email}</div>
+                                    <div className="panel-heading">Email: {post.email}</div>
                                     <div className="panel-body">
-                                        <p>{post.name}</p>
+                                        <p>Comment: {post.name}</p>
                                     </div>
                                 </div>
                             </div>

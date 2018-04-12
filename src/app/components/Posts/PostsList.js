@@ -8,7 +8,7 @@ const PostsList = (props) => {
             <h4>Posts List</h4>
             <div className="row" >
                 {
-                    props.PostReducer.data.map((post, index) => {
+                    props.data.map((post, index) => {
                         return (
                             <div className="col-md-6 posts" key={index}>
                                 <div className="panel panel-primary">

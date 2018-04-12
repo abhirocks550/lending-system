@@ -8,6 +8,12 @@ export default function PostReducer(state = { data: [] }, action) {
         data: action.posts.data,
       };
       break;
+    case 'SET_POSTS_SUCCESS':
+      state = {
+        ...state,
+        initialPosts: action.numberOfPosts,
+      };
+      break;
   }
   return state;
 }
