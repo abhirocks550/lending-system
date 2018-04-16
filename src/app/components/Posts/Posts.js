@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 
 class Posts extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -15,7 +16,8 @@ class Posts extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.PostReducer.data.length > 0 && (this.props.PostReducer.data != nextProps.PostReducer.data) && this.state.offset === 0) {
+    if (nextProps.PostReducer.data.length > 0 && (this.props.PostReducer.data
+      != nextProps.PostReducer.data) && this.state.offset === 0) {
       let firstData = nextProps.PostReducer.data.slice(0, 10);
       this.setState({
           data: firstData,
@@ -35,6 +37,7 @@ class Posts extends Component {
       };
 
   render() {
+    let posts = null;
     return (
             <div>
                 <h2>Posts Index page</h2>

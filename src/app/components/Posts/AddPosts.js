@@ -8,7 +8,6 @@ class AddPosts extends Component {
     super(props, context);
 
     this.handleChange = this.handleChange.bind(this);
-    this.save = this.save.bind(this);
 
     this.state = {
       value: '',
@@ -90,4 +89,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPosts);
-

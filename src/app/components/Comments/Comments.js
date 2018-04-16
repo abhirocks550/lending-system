@@ -40,12 +40,13 @@ class Comments extends Component {
   }
 
   render() {
-    console.log('CommentReducer', this.props.CommentReducer);
-    return (
-      <div>
-        <h3>Comments</h3>
-        <CommentList data={this.state.data} />
-        <ReactPaginate previousLabel={'previous'}
+    let comments = null;
+    if (this.props.CommentReducer && this.props.CommentReducer.isLoggedIn) {
+      comments = (
+        <div>
+          <h3>Comments</h3>
+          <CommentList data={this.state.data} />
+          <ReactPaginate previousLabel={'previous'}
                     nextLabel={'next'}
                     breakLabel={<a href=''>...</a>}
                     breakClassName={'break-me'}
@@ -56,6 +57,15 @@ class Comments extends Component {
                     containerClassName={'pagination'}
                     subContainerClassName={'pages pagination'}
                     activeClassName={'active'} />
+      </div>
+     );
+    } else {
+      this.props.router.push('/login');
+    }
+
+    return (
+      <div>
+        { comments }
       </div>
     );
   }
@@ -74,4 +84,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments);
-

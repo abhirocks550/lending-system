@@ -24,3 +24,10 @@ export function SetInitalPosts(numberOfPosts) {
       numberOfPosts,
     };
 }
+
+export function UserLoggedIn() {
+  return {
+      type: 'USER_LOGGED_IN',
+      isLoggedIn: true,
+    };
+}
