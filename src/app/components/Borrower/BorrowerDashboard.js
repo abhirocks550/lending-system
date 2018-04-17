@@ -8,7 +8,9 @@ class Borrower extends React.Component {
 
   render() {
     return (
-      <div>Borrower Dashboard</div>
+      <div>
+        <h2>Borrower Dashboard</h2>
+      </div>
     );
   };
 }

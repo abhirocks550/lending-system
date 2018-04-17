@@ -1,12 +1,13 @@
 import * as LoginActions from '../actions/LoginActions';
 
-export default function LoginReducer(state = { data: [], isLoggedIn: false },
+export default function LoginReducer(state = { data: [], isLoggedIn: false, userDetails: {} },
     action) {
   switch (action.type) {
     case 'Login_SUCCESS':
       state = {
           ...state,
           isLoggedIn: action.isLoggedIn,
+          userDetails: action.user,
         };
       return state;
     case 'UPDATE_INPUT':

@@ -4,15 +4,16 @@ export function UserLoggedIn(user) {
   return (dispatch, getState) => {
       return axios.post('http://10.118.4.42:8080/user/login', user)
       .then(res => {
-          dispatch(LoginSuccess(true));
+          dispatch(LoginSuccess(true, res.data));
         });
     };
 }
 
-export function LoginSuccess(isLoggedIn) {
+export function LoginSuccess(isLoggedIn, user) {
   return {
         type: 'Login_SUCCESS',
         isLoggedIn: isLoggedIn,
+        user: user,
       };
 }
 
