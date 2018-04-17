@@ -3,12 +3,14 @@ import axios from 'axios';
 //Read
 export function UserLoggedIn() {
   return (dispatch, getState) => {
-    //   return axios.get('https://jsonplaceholder.typicode.com/comments')
-    //   .then(res => {
-    //       dispatch(GetCommentsSuccess(res));
-    //       dispatch(SetInitalPosts(10));
-    //     })
-      dispatch(LoginSuccess(true));
+      return axios.post('http://10.118.4.42:8080/user/login', {
+        'username': 'Abhijit',
+        'password': 'test',
+      })
+      .then(res => {
+          debugger;
+          dispatch(LoginSuccess(true));
+        });
     };
 }
 
@@ -16,5 +18,12 @@ export function LoginSuccess(isLoggedIn) {
   return {
         type: 'Login_SUCCESS',
         isLoggedIn: isLoggedIn,
+      };
+}
+
+export function UpdateInput(event) {
+  return {
+        type: 'UPDATE_INPUT',
+        event,
       };
 }

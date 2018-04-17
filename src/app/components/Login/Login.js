@@ -15,6 +15,10 @@ class Login extends React.Component {
     }
   }
 
+  updateInput(event) {
+    this.props.UpdateInput(event);
+  }
+
   handleClick() {
     this.props.LoggedIn();
   }
@@ -25,11 +29,11 @@ class Login extends React.Component {
         <form>
           <div className="form-group">
             <label>Email address:</label>
-            <input type="email" className="form-control" id="email" />
+            <input type="email" name="email" className="form-control" id="email" />
           </div>
           <div className="form-group">
             <label>Password:</label>
-            <input type="password" className="form-control" id="pwd" />
+            <input type="password" name="password" className="form-control" id="pwd" />
           </div>
           <button type="button"
             onClick={this.handleClick}
@@ -50,6 +54,10 @@ const mapStateToProps = (state, ownState) => {
 const mapDispatchToProps = dispatch => ({
   LoggedIn: () => {
     dispatch(LoginActions.UserLoggedIn());
+  },
+
+  UpdateInput: () => {
+    dispatch(LoginActions.UpdateInput());
   },
 });
 

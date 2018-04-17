@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "React application to track course status.",
   "main": "index.js",
-  "devtool": "eval-source-map",
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
