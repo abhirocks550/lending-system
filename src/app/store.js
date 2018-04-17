@@ -1,11 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import PostReducer from './reducers/postReducers';
-import CommentReducer from './reducers/commentReducers';
+import LoginReducer from './reducers/LoginReducer';
 
 const store =
-    createStore(combineReducers({ PostReducer, CommentReducer }),
+    createStore(combineReducers({ LoginReducer }),
     {},
     applyMiddleware(logger, thunk));
 export default store;

@@ -1,12 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as CommentsActions from '../../actions/commentsActions';
+import * as LoginActions from '../../actions/LoginActions';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
   };
+
+  componentWillReceiveProps(nextState) {
+    if (nextState.LoginReducer.isLoggedIn !== this.props.LoginReducer.isLoggedIn) {
+      this.props.router.push('/borrowerPage');
+    }
+  }
 
   handleClick() {
     this.props.LoggedIn();
@@ -36,13 +43,13 @@ class Login extends React.Component {
 
 const mapStateToProps = (state, ownState) => {
   return {
-    CommentReducer: state.CommentReducer,
+    LoginReducer: state.LoginReducer,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   LoggedIn: () => {
-    dispatch(CommentsActions.UserLoggedIn());
+    dispatch(LoginActions.UserLoggedIn());
   },
 });
 

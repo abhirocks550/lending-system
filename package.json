@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React application to track course status.",
   "main": "index.js",
+  "devtool": "eval-source-map",
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --content-base src/ --inline --hot --history-api-fallback",
@@ -24,6 +25,7 @@
     "react-paginate": "^5.2.2",
     "react-redux": "^4.0.0",
     "react-router": "^3.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
