@@ -7,6 +7,7 @@ class Login extends React.Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
+    this.updateInput = this.updateInput.bind(this);
   };
 
   componentWillReceiveProps(nextState) {
@@ -20,7 +21,11 @@ class Login extends React.Component {
   }
 
   handleClick() {
-    this.props.LoggedIn();
+    let user = {
+      username: this.props.LoginReducer.username,
+      password: this.props.LoginReducer.password,
+    };
+    this.props.LoggedIn(user);
   }
 
   render() {
@@ -28,12 +33,14 @@ class Login extends React.Component {
       <div>
         <form>
           <div className="form-group">
-            <label>Email address:</label>
-            <input type="email" name="email" className="form-control" id="email" />
+            <label>User name:</label>
+            <input type="text" onChange={this.updateInput} name="username"
+            className="form-control" id="username" />
           </div>
           <div className="form-group">
             <label>Password:</label>
-            <input type="password" name="password" className="form-control" id="pwd" />
+            <input type="password" onChange={this.updateInput} name="password"
+            className="form-control" id="pwd" />
           </div>
           <button type="button"
             onClick={this.handleClick}
@@ -52,12 +59,12 @@ const mapStateToProps = (state, ownState) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  LoggedIn: () => {
-    dispatch(LoginActions.UserLoggedIn());
+  LoggedIn: (user) => {
+    dispatch(LoginActions.UserLoggedIn(user));
   },
 
-  UpdateInput: () => {
-    dispatch(LoginActions.UpdateInput());
+  UpdateInput: (event) => {
+    dispatch(LoginActions.UpdateInput(event));
   },
 });
 

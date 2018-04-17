@@ -16,13 +16,18 @@ class NavBar extends React.Component {
                             {
                                 this.props.LoginReducer.isLoggedIn &&
                                  <ul className="nav navbar-nav">
-                                <li><Link to="/" activeClassName="active" >Transactions</Link></li>
+                                    <li>
+                                        <Link to="/" activeClassName="active" >Transactions</Link>
+                                    </li>
                                 </ul>
                             }
                             {
                                 this.props.LoginReducer.isLoggedIn &&
                                 <ul className="nav navbar-nav navbar-right">
-                                 <li><Link to="#"><span className="glyphicon glyphicon-log-in"></span> Logout</Link></li>
+                                    <li>
+                                       <Link to="#"><span className="glyphicon glyphicon-log-in">
+                                         </span> Logout</Link>
+                                    </li>
                                 </ul>
                             }
                                           

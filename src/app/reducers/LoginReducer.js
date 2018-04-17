@@ -9,14 +9,12 @@ export default function LoginReducer(state = { data: [], isLoggedIn: false },
           isLoggedIn: action.isLoggedIn,
         };
       return state;
-      break;
-    // case 'UPDATE_INPUT':
-    //   state = {
-    //     ...state,
-    //     [action.event.target.name]: action.event.target.value,
-    //   };
-    //   break;
-    //   return state;
+    case 'UPDATE_INPUT':
+      state = {
+        ...state,
+        [action.event.target.name]: action.event.target.value,
+      };
+      return state;
     default:
       return state;
   }

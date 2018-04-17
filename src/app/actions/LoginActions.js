@@ -1,14 +1,9 @@
 import axios from 'axios';
 
-//Read
-export function UserLoggedIn() {
+export function UserLoggedIn(user) {
   return (dispatch, getState) => {
-      return axios.post('http://10.118.4.42:8080/user/login', {
-        'username': 'Abhijit',
-        'password': 'test',
-      })
+      return axios.post('http://10.118.4.42:8080/user/login', user)
       .then(res => {
-          debugger;
           dispatch(LoginSuccess(true));
         });
     };
