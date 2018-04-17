@@ -13,7 +13,7 @@ class ListLender extends Component {
 
   render() {
     return (
-            <div>
+            <div className="container">
                 <h3>List of Lenders</h3>
 
                 <div className="row">

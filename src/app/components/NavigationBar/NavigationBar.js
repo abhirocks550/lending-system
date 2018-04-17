@@ -8,7 +8,7 @@ class NavBar extends React.Component {
   render() {
     let navBarSection = (
             <section id="navBar-section">
-                <nav className="navbar navbar-inverse">
+                <nav className="navbar navbar-default">
                     <div className="container-fluid">
                         <div className="navbar-header" id="navBarHeading">
                             <span>Money Lending system</span>
