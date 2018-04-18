@@ -17,11 +17,11 @@ class BorrowerNavBar extends React.Component {
                                 <ul className="nav navbar-nav">
                                  <li><Link to="/listLenders" id="lenderlist"> Lender's List</Link></li>
                                 </ul>
+                                <ul className="nav navbar-nav">
+                                 <li><Link to="/requestList" id="lenderlist"> My Requests</Link></li>
+                                </ul>
                                 <ul className="nav navbar-nav navbar-right">
                                 <li><Link to="/login"  id="logout"> Logout </Link></li>
-                                </ul>
-                             <ul className="nav navbar-nav navbar-right">
-                                 <li><Link to="/Profile"  id="editprofile"> Edit Profile </Link></li>
                                 </ul>
                     </div>
                 </nav>

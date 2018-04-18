@@ -1,6 +1,6 @@
 import * as transAction from '../actions/TransactionActions.js';
 
-export default function TransactionReduder(state={ transList: [] }, action) {
+export default function TransactionReducer(state={ transList: [] }, action) {
   switch (action.type) {
     case 'TRANSACTIONS_SUCCESS':
       state = {

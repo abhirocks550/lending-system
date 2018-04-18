@@ -18,7 +18,6 @@ export function LoginSuccess(isLoggedIn, user) {
 }
 
 export function InitialLogin() {
-  debugger;
   return {
         type: 'INITIAL_LOGIN',
         isLoggedIn: false,

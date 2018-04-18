@@ -17,7 +17,6 @@ export function GetLendersSuccess(lenders) {
 }
 
 export function ApplyLoan(request) {
-  debugger;  
   return (dispatch, getState) => {
       return axios.post('http://10.118.4.42:8080/transaction/lendingRequest', request)
       .then(res => {

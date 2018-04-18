@@ -61,7 +61,6 @@ class ListLender extends Component {
   render() {
     let stateLenders = this.state.lenders;
     let reducerLenders =  this.props.LendersReducer.lenders;
-    debugger;
     return (
             <div className="container">
                 <h3 className='text-center'>List of Lenders</h3>

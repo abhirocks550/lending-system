@@ -10,7 +10,7 @@ class Borrower extends React.Component {
   render() {
     return (
       <div>
-        { this.props.LoginReducer.isLoggedIn &&
+        {/* { this.props.LoginReducer.isLoggedIn && */}
         <div>
         <div className="container">
         <BorrowerNavBar />        
@@ -31,7 +31,7 @@ class Borrower extends React.Component {
       </div>
       {this.props.children}
       </div>
-       }
+       {/* } */}
       </div>
     );
   };

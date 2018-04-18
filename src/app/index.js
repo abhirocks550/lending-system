@@ -8,6 +8,7 @@ import Login from './components/Login/Login.js';
 import Borrower from './components/Borrower/BorrowerDashboard.js';
 import ListLender from './components/Borrower/ListLender';
 import Transactions from './components/Borrower/Transactions.js';
+import Requests from './components/Borrower/Requests.js';
 
 render(
     <Provider store={store}>
@@ -21,7 +22,7 @@ render(
                <IndexRoute component={Transactions} />
                <Route path="/transactions" component={Transactions}/>               
                <Route path="/listLenders" component={ListLender}/>
-               <Route path="/transactions" component={Transactions}/>
+               <Route path="/requestList" component={Requests}/>
             </Route>
 
         </Router>
