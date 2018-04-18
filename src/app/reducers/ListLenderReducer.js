@@ -9,6 +9,12 @@ export default function ListLenderReducer(state = { lenders: [] },
           lenders: action.lenders,
         };
       return state;
+    case 'LENDER_UPDATE_INPUT':
+      state = {
+        ...state,
+        [action.event.target.name]: action.event.target.value,
+      };
+      return state;
     default:
       return state;
   }
