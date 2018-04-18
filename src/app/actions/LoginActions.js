@@ -17,6 +17,14 @@ export function LoginSuccess(isLoggedIn, user) {
       };
 }
 
+export function InitialLogin() {
+  debugger;
+  return {
+        type: 'INITIAL_LOGIN',
+        isLoggedIn: false,
+      };
+}
+
 export function UpdateInput(event) {
   return {
         type: 'UPDATE_INPUT',

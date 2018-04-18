@@ -14,10 +14,12 @@ render(
         <Router history={browserHistory}>
             <Route path="/" component={App} >
                 <IndexRoute component={Login} />
+                <Route path="/login" component={Login}/> 
             </Route>
             
             <Route path="/borrowerPage" component={Borrower}>
                <IndexRoute component={Transactions} />
+               <Route path="/transactions" component={Transactions}/>               
                <Route path="/listLenders" component={ListLender}/>
                <Route path="/transactions" component={Transactions}/>
             </Route>

@@ -7,11 +7,18 @@ class Login extends React.Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.updateInput = this.updateInput.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   };
+
+  componentWillMount() {
+    this.props.InitialLogin();
+  }
 
   componentWillReceiveProps(nextState) {
     if (nextState.LoginReducer.isLoggedIn !== this.props.LoginReducer.isLoggedIn) {
-      this.props.router.push('/borrowerPage');
+      if (nextState.LoginReducer.isLoggedIn === true) {
+        this.props.router.push('/borrowerPage');
+      }
     }
   }
 
@@ -27,10 +34,18 @@ class Login extends React.Component {
     this.props.LoggedIn(user);
   }
 
+  handleKeyDown = function (e) {
+    if (e.key === 'Enter' && e.shiftKey === false) {
+      e.preventDefault();
+      this.handleClick();
+    }
+  };
+
   render() {
     return (
       <div>
-        <form>
+        <form onKeyDown={(e) => { this.handleKeyDown(e); }}>
+
           <div className="form-group">
             <label>User name:</label>
             <input type="text" onChange={this.updateInput} name="username"
@@ -64,6 +79,10 @@ const mapDispatchToProps = dispatch => ({
 
   UpdateInput: (event) => {
     dispatch(LoginActions.UpdateInput(event));
+  },
+
+  InitialLogin: () => {
+    dispatch(LoginActions.InitialLogin());
   },
 });
 

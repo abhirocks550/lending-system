@@ -61,6 +61,7 @@ class ListLender extends Component {
   render() {
     let stateLenders = this.state.lenders;
     let reducerLenders =  this.props.LendersReducer.lenders;
+    debugger;
     return (
             <div className="container">
                 <h3 className='text-center'>List of Lenders</h3>
@@ -73,7 +74,10 @@ class ListLender extends Component {
                                     <th>Name</th>
                                     <th>Amount</th>
                                     <th>Rate of Interest</th>
-                                    <th>Request loan</th>
+                                    {
+                                     (this.props.LoginReducer.userDetails.role  === 'BORROWER') &&
+                                     <th>Request loan</th>
+                                    }
                                 </tr>
                             </thead>
 
@@ -85,15 +89,18 @@ class ListLender extends Component {
                                                 <td className="col-md-3">{lender.firstName}</td>
                                                 <td className="col-md-3">{lender.balanceAmt}</td>
                                                 <td className="col-md-3">{lender.interestRate}</td>
-                                                <td className="col-md-3">
-                                                    <Button
+                                                {
+                                                 (this.props.LoginReducer.userDetails.role  === 'BORROWER') && 
+                                                 <td className="col-md-3">
+                                                   <Button
                                                         bsStyle="primary"
                                                         bsSize="small"
                                                         onClick={() => this.open(lender)}
                                                     >
                                                     Request
-                                                </Button>
+                                                    </Button>
                                                 </td>
+                                                }                                                
                                             </tr>
                                         );
                                       })
@@ -170,4 +177,3 @@ const mapDispatchToProps = dispatch => ({
   });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListLender);
-

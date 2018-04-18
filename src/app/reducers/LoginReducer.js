@@ -16,6 +16,12 @@ export default function LoginReducer(state = { data: [], isLoggedIn: false, user
         [action.event.target.name]: action.event.target.value,
       };
       return state;
+    case 'INITIAL_LOGIN':
+      state = {
+        ...state,
+        isLoggedIn: action.isLoggedIn,
+      };
+      return state;
     default:
       return state;
   }
