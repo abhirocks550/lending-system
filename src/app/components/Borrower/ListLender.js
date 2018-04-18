@@ -10,12 +10,14 @@ class ListLender extends Component {
         showModal: false,
         lenderName: '',
         lenderroi: '',
+        lenderId: '',
         lenders: [
             { firstName: 'Abhijit', balanceAmt: 145200, interestRate: 7.5 },
             { firstName: 'Ankita', balanceAmt: 15200, interestRate: 8 },
         ],
       };
     this.close = this.close.bind(this);
+    this.applyLoan = this.applyLoan.bind(this);
     this.updateInput = this.updateInput.bind(this);
   };
 
@@ -24,12 +26,32 @@ class ListLender extends Component {
   }
 
   open(lender) {
-    this.setState({ lenderName: lender.firstName, lenderroi: lender.interestRate });
+    this.setState({ lenderName: lender.firstName,
+        lenderroi: lender.interestRate,
+        balanceAmount: lender.balanceAmt,
+        lenderId: lender.id,
+      });
     this.setState({ showModal: true });
   }
 
   updateInput(event) {
     this.props.UpdateInput(event);
+  }
+
+  applyLoan(event) {
+    event.preventDefault();
+    let request = {
+        lenderId: this.state.lenderId,
+        borrowerId: this.props.LoginReducer.userDetails.id,
+        amount: this.props.LendersReducer.amount,
+        interest: this.state.lenderroi,
+        emi: 10,
+        tenureInMonths: 10,
+        status: 'PENDING',
+      };
+    this.props.ApplyLoan(request);
+    this.setState({ showModal: false });
+    alert('Loan request submitted sucessfully');
   }
 
   componentWillMount() {
@@ -57,7 +79,7 @@ class ListLender extends Component {
 
                             <tbody >
                                 {
-                                    stateLenders.map((lender, index) => {
+                                    reducerLenders.map((lender, index) => {
                                         return (
                                             <tr key={index}>
                                                 <td className="col-md-3">{lender.firstName}</td>
@@ -89,7 +111,7 @@ class ListLender extends Component {
                         </Modal.Header>
 
                         <Modal.Body>
-                            <form>
+                            <form onSubmit={this.applyLoan}>
                                 <div className="form-group">
                                     <label>Lender name</label>
                                     <input type="text" disabled
@@ -103,10 +125,10 @@ class ListLender extends Component {
                                 </div>
                                 <div className="form-group">
                                     <label>Amount:</label>
-                                    <input type="number" onChange={this.updateInput}
+                                    <input type="number" onChange={this.updateInput} max={this.state.balanceAmount}
                                         name="amount" className="form-control" id="amount" />
                                 </div>
-                                <button type="button"
+                                <button type="submit"
                                     className="btn btn-default">Apply for Loan</button>
                             </form>
                             <hr />
@@ -127,6 +149,7 @@ class ListLender extends Component {
 const mapStateToProps = (state, ownState) => {
     return {
         LendersReducer: state.ListLenderReducer,
+        LoginReducer: state.LoginReducer,
       };
   };
 
@@ -138,6 +161,10 @@ const mapDispatchToProps = dispatch => ({
 
     UpdateInput: (event) => {
         dispatch(LenderActions.UpdateInput(event));
+      },
+
+    ApplyLoan: (request) => {
+        dispatch(LenderActions.ApplyLoan(request));
       },
 
   });

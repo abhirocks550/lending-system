@@ -16,8 +16,24 @@ export function GetLendersSuccess(lenders) {
         };
 }
 
+export function ApplyLoan(request) {
+  debugger;  
+  return (dispatch, getState) => {
+      return axios.post('http://10.118.4.42:8080/transaction/lendingRequest', request)
+      .then(res => {
+          dispatch(ApplyLoanSuccess());
+        });
+    };
+}
+
+export function ApplyLoanSuccess() {
+  return {
+          type: 'APPLY_LOAN_SUCCESS',
+          isSaved: true,
+        };
+}
+
 export function UpdateInput(event) {
-  debugger;
   return {
         type: 'LENDER_UPDATE_INPUT',
         event,
