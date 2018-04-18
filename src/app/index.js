@@ -18,6 +18,7 @@ render(
             
             <Route path="/borrowerPage" component={Borrower}>
                <IndexRoute component={Transactions} />
+               <Route path="/transactions" component={Transactions}/>               
                <Route path="/listLenders" component={ListLender}/>
             </Route>
 

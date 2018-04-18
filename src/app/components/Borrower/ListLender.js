@@ -14,11 +14,11 @@ class ListLender extends Component {
   render() {
     return (
             <div className="container">
-                <h3>List of Lenders</h3>
+                <h3 style={{ textAlign: 'center' }}>Lenders List</h3>
 
                 <div className="row">
                 <div className="col-md-12">
-                    <table className="table table-bordered">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>Name</th>

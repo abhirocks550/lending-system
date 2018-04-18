@@ -10,14 +10,14 @@ class Borrower extends React.Component {
   render() {
     return (
       <div>
+        { this.props.LoginReducer.isLoggedIn &&
+        <div>
         <div className="container">
         <BorrowerNavBar />        
-        <hr/>
-        <div className="row">
-        <div className="col-md-2">
-          <label>Name :</label>
-          <span>{this.props.LoginReducer.userDetails.firstName}</span>
+        <div>
+          <span className="welcm-Header">Welcome, {this.props.LoginReducer.userDetails.firstName} {this.props.LoginReducer.userDetails.lastName}</span>
         </div>
+        <div className="row">
         <div className="col-md-2">
           <label>Balance :</label>
           <span>{this.props.LoginReducer.userDetails.balanceAmt}</span>
@@ -27,9 +27,11 @@ class Borrower extends React.Component {
         <span>{this.props.LoginReducer.userDetails.role}</span>
         </div>
         </div>
-        <br />
+        <hr/>
       </div>
       {this.props.children}
+      </div>
+       }
       </div>
     );
   };
